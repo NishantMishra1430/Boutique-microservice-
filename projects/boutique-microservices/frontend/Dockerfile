@@ -1,22 +1,14 @@
-# Frontend Dockerfile
-FROM node:20-alpine
-
+FROM node:20-alpine AS build 
 WORKDIR /app
-
-# Copy package files
 COPY package*.json ./
-RUN npm install --production=false
+RUN npm install --production=false 
+COPY . . 
+RUN npm run build 
 
-# Copy source code
-COPY . .
-
-# Build the app
-RUN npm run build
-
-# Install serve globally
-RUN npm install -g serve
-
+FROM nginx:stable-alpine AS prod
+RUN addgroup -g 1001 -S nodejs &&\
+adduser -u 1001 -S nodejs -G nodejs
+COPY --chown=nodejs:nodejs --chmod=775 --from=build /app/build /usr/share/nginx/html
+USER nodejs
 EXPOSE 3000
-
-# Use serve to host the static files
-CMD ["serve", "-s", "build", "-l", "3000", "--single"]
+CMD ["nginx", "-g", "daemon off;"]
