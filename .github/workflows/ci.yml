@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  SetUp: # Job - 1
+  Deploy:
     runs-on: ubuntu:latest
 
     steps:
@@ -21,11 +21,6 @@ jobs:
       - name: Docker Setup # Step - 2
         uses: docker/setup-buildx-action@v3
 
-  Build&Push: # Job - 2
-    runs-on: ubuntu:latest
-
-    steps:
-      
   # Verifying Code Changes
       - name: Code Checkout # Step - 1
         uses: actions/checkout@v4
@@ -93,16 +88,8 @@ jobs:
           load: true
           push: true
           tags: ${{vars.DOCKER_USERNAME}}/boutique-user-service:latest
-
-
-
-  Test: # Job - 3
-    runs-on: ubuntu-latest
-
-    steps:
     
   # Scanning Vulnerabilities
-
 
       - name: Scanning Frontend # Step - 1
         uses: docker/scout-action@v1
@@ -173,14 +160,3 @@ jobs:
           only-serverities: critical
           exit-code: true
 
-
-
-  Deploy: # Job - 4
-    runs-on: ubuntu-latest
-
-    steps:
-
-      - name: Docker Compose Up # Step - 1
-        uses: hoverkraft-tech/compose-action@v2.0.1
-        with:
-          compose-file: "../../projects/boutique-microservices/docker-compose.yml"
