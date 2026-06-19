@@ -160,3 +160,13 @@ jobs:
           only-serverities: critical
           exit-code: true
 
+<<<<<<< HEAD
+=======
+
+      - name: K3S SetUp
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+          chmod 600 ~/.kube/config
+
+>>>>>>> 1ca4b8b (Update 2.1)
