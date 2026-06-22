@@ -24,7 +24,7 @@ In this series we will:
 - Implement GitOps workflows with ArgoCD
 - Integrate AIOps capabilities with AWS Bedrock
 
-By the end of this series, you won't just know tools — you'll understand how real DevOps systems are designed and deployed.
+By the end of this series, you won't just know tools — you'll understand how real DevOps systems are designed and deployed
 
 ---
 
