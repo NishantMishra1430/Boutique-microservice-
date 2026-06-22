@@ -33,7 +33,7 @@ jobs:
           context: ../../projects/boutique-microservices/frontend/ 
           push: true
           load: true
-          tags: ${{vars.DOCKER_USERNAME}}/boutique-frontend:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-frontend:${{github.sha}}
 
 
       - name: B&P Boutique Backend Gateway # Step - 3
@@ -42,7 +42,7 @@ jobs:
           context: ../../projects/boutique-microservices/backend/services/gateway
           load: true
           push: true
-          tags: ${{vars.DOCKER_USERNAME}}/boutique-gateway:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-gateway:${{github.sha}}
 
 
       - name: B&P Boutique Backend Auth # Step - 4
@@ -51,7 +51,7 @@ jobs:
           context: ../../projects/boutique-microservices/backend/services/auth
           load: true
           push: true
-          tags:${{vars.DOCKER_USERNAME}}/boutique-auth:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-auth:${{github.sha}}
 
 
       - name: B&P Boutique Backend Order Service # Step - 5
@@ -60,7 +60,7 @@ jobs:
           context: ../../projects/boutique-microservices/backend/services/order-service
           load: true
           push: true
-          tags: ${{vars.DOCKER_USERNAME}}/boutique-order-service:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-order-service:${{github.sha}}
 
 
       - name: B&P Boutique Backend orders # Step - 6
@@ -69,7 +69,7 @@ jobs:
           context: ../../projects/boutique-microservices/backend/services/orders
           load: true
           push: true
-          tags: ${{vars.DOCKER_USERNAME}}/boutique-orders:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-orders:${{github.sha}}
 
 
       - name: B&P Boutique Backend Product-Service # Step - 7
@@ -78,7 +78,7 @@ jobs:
           context: ../../projects/boutique-microservices/backend/services/product-service
           load: true
           push: true
-          tags: ${{vars.DOCKER_USERNAME}}/boutique-product-service:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-product-service:${{github.sha}}
 
 
       - name: B&P Boutique Backend User-Service # Step - 8
@@ -87,7 +87,7 @@ jobs:
           context: ../../projects/boutique-microservices/backend/services/user-service
           load: true
           push: true
-          tags: ${{vars.DOCKER_USERNAME}}/boutique-user-service:latest
+          tags: ${{vars.DOCKER_USERNAME}}/boutique-user-service:${{github.sha}}
     
   # Scanning Vulnerabilities
 
@@ -95,7 +95,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-frontend:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-frontend:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
@@ -105,7 +105,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-gateway:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-gateway:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
@@ -115,7 +115,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-auth:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-auth:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
@@ -125,7 +125,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-order-service:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-order-service:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
@@ -135,7 +135,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-orders:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-orders:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
@@ -145,7 +145,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-product-service:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-product-service:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
@@ -155,7 +155,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{vars.DOCKER_USERNAME}}/boutique-user-service:latest
+          image: ${{vars.DOCKER_USERNAME}}/boutique-user-service:${{github.sha}}
           ignore-unchanged: true
           only-serverities: critical
           exit-code: true
