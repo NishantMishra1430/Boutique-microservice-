@@ -29,7 +29,7 @@ spec:
             - containerPort: 3000
           env: 
             - name: REACT_APP_API_URL 
-              value: "http://boutique-gateway-service:3001"
+              value: "http://157.173.121.36:32002"
 
 
 
