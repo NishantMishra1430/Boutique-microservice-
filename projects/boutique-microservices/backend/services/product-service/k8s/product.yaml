@@ -1,0 +1,52 @@
+kind: Deployment
+apiVersion: apps/v1
+
+metadata:
+  name: boutique-product-deployment
+  namespace: boutique
+  labels:
+    app: product
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels:
+        app: product
+
+    spec:
+      containers:
+        - name: boutique-product
+          image: mishranishant/boutique-product:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3003
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-cred
+                  key: DBurl
+
+---
+
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: boutique-product-service
+  namespace: boutique 
+
+spec:
+  type: NodePort
+  ports:
+    - port: 3003
+      targetPort: 3003
+      nodePort: 32006
+      protocol: TCP
+      name: http
+  selector:
+    app: product
