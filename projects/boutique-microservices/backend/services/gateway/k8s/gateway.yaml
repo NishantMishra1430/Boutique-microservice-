@@ -34,7 +34,7 @@ spec:
             - name: PRODUCTS_SERVICE_URL
               value: "http://boutique-products-service:3003"
             - name: ORDER_SERVICE_URL
-              value: "http://boutique-order-srv-service:3004"
+              value: "http://boutique-order-service:3004"
             - name: ORDERS_SERVICE_URL
               value: "http://boutique-orders-service:3005"
             - name: USER_SERVICE_URL
