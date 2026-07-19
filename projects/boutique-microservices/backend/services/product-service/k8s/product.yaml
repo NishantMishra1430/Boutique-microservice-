@@ -28,7 +28,7 @@ spec:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: db-cred
+                  name: productdburl
                   key: DBurl
 
 ---

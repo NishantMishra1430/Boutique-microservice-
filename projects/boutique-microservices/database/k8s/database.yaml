@@ -54,10 +54,15 @@ spec:
           env:
             - name: POSTGRES_USER
               valueFrom:
+                secretKeyRef:
+                  name: boutique-postgres-username
+                  key: pg-username
 
             - name: POSTGRES_PASSWORD
-              value: "postgres123"
-          
+              valueFrom:
+                secretKeyRef:
+                  name: boutique-postgres-password
+                  key: pg-password
           
           volumeMounts:
             
