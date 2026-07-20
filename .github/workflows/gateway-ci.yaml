@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         working-directory: ${{env.WORKING_DIR}}
         run: |
-          npm ci 
+          npm instal 
           npm run build --if-present
 
   credentials-security-scanning:
