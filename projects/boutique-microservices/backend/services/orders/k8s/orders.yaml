@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: boutique-orders
-          image: mishranishant/boutique-orders:latest
+          image: mishranishant/boutique-orders:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 3005

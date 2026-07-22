@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: boutique-product
-          image: mishranishant/boutique-product:latest
+          image: mishranishant/boutique-product:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 3003

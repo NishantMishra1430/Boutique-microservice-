@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: boutique-gateway
-          image: mishranishant/boutique-gateway:latest
+          image: mishranishant/boutique-gateway:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 3001
