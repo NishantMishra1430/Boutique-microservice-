@@ -94,4 +94,4 @@ jobs:
            echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config
            chmod 600 ~/.kube/config
            kubectl set image deployment/boutique-auth-deployment boutique-auth=${{secrets.DOCKER_USERNAME}}/boutique-auth:${{github.sha}} -n boutique
-           kubectl rollout status deployment/boutique-auth-deployment
+           kubectl rollout status deployment/boutique-auth-deployment -n boutique 

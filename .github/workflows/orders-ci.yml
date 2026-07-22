@@ -95,4 +95,4 @@ jobs:
 
           kubectl set image deployment/boutique-orders-deployment boutique-orders=${{ secrets.DOCKER_USERNAME }}/boutique-orders:${{ github.sha }} -n boutique
 
-          kubectl rollout status deployment/boutique-orders-deployment
+          kubectl rollout status deployment/boutique-orders-deployment -n boutique

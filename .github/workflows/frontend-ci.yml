@@ -97,4 +97,4 @@ jobs:
 
           kubectl set image deployment/boutique-frontend-deployment boutique-frontend=${{ secrets.DOCKER_USERNAME }}/boutique-frontend:${{ github.sha }} -n boutique
 
-          kubectl rollout status deployment/boutique-frontend-deployment
+          kubectl rollout status deployment/boutique-frontend-deployment -n boutique
