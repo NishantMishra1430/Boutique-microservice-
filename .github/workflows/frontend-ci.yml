@@ -20,7 +20,7 @@ jobs:
       - name: NodeJS Setup
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
       - name: Code build
         working-directory: ${{ env.WORKING_DIR }}
         env:
