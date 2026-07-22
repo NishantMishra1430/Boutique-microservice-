@@ -24,8 +24,9 @@ jobs:
       - name: Code build
         working-directory: ${{ env.WORKING_DIR }}
         env:
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
           NODE_OPTIONS: "--openssl-legacy-provider"
-          CI: "false"
+          CI: false
         run: |
           npm install 
           npm run build --if-present
