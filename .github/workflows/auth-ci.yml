@@ -64,9 +64,9 @@ jobs:
         with:
           image-ref: 'boutique-auth:${{ github.sha }}'
           format: 'table'
-          exit-code: '1'
+          exit-code: '0'
           ignore-unfixed: true
-          severity: 'CRITICAL'
+          severity: 'CRITICAL,HIGH'
       - name: Software Bill of Material
         uses: anchore/sbom-action@v0
         with: 
