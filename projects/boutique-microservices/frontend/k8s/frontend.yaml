@@ -45,7 +45,7 @@ spec:
   type: NodePort
   ports:
     - port: 3000
-      targetPort: 3000
+      targetPort: 80
       protocol: TCP
       nodePort: 32001
       name: http
