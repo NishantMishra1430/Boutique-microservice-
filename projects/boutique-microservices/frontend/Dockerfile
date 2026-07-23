@@ -9,6 +9,7 @@ FROM nginx:stable-alpine AS prod
 RUN addgroup -g 1001 -S nodejs &&\
 adduser -u 1001 -S nodejs -G nodejs 
 COPY --chown=nodejs:nodejs --chmod=775 --from=build /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 USER nodejs
 EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
