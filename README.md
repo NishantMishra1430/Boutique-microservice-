@@ -24,7 +24,6 @@ In this series we will:
 - Integrate AIOps capabilities with AWS Bedrock
 
 By the end of this series, you won't just know tools — you'll understand how real DevOps systems are designed and deployed.
-
 ---
 
 ## Repository Structure
