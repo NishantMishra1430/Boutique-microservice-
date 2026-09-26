@@ -5,7 +5,7 @@
 
 ## Welcome
 
-Hey everyone
+Hey everyone 
 
 Welcome to my DevOps + AI series where we build an end-to-end DevOps project with an AIOps integration.
 
